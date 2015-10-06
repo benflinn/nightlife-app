@@ -1,23 +1,20 @@
-if (Meteor.isClient) {
-  // counter starts at 0
-  Session.setDefault('counter', 0);
 
-  Template.hello.helpers({
-    counter: function () {
-      return Session.get('counter');
+  Template.body.helpers({
+     hits: function(){
+		 return Locations.find();
+		 //this should have a filter eventually so it only returns results based 
+		 //on your query in the .events below
+	 }
+    });
+
+
+  Template.body.events({
+    'submit form': function (event) {
+      event.preventDefault();
+	  
+	 //////make http request for data based on input//
+	  
     }
   });
 
-  Template.hello.events({
-    'click button': function () {
-      // increment the counter when button is clicked
-      Session.set('counter', Session.get('counter') + 1);
-    }
-  });
-}
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}

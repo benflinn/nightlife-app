@@ -28,3 +28,16 @@ c. app.css:
 d. hit.html: a separate html template for each hit/restaurant one receives for a search, contains link for foursquare event.
 e. hit.js: contains a simple counter for attendees which updates this specific hit document in the 
 f. hit.css:
+
+
+foursquare info:
+
+client id:   A5UA3LYLAL1V0EZ1EPAVSP5M2RV2GKWIE05VOIB2PSN2Z0KT
+ 
+client secret:  FTIBM0VRK3VTH22HZG5DUDTVZR13N3FI05Z1VFNN25PM3LXU
+
+our app account: https://foursquare.com/developers/app/A5UA3LYLAL1V0EZ1EPAVSP5M2RV2GKWIE05VOIB2PSN2Z0KT
+
+{{>loginButtons}}
+
+
