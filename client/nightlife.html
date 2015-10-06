@@ -1,3 +1,4 @@
+
 <head>
   <title>NITEPLANZ</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -6,13 +7,19 @@
 </head>
 
 <body>
-	<div class="jumbotron">
-  <h1 class="text-center">LET'S GET THIS PARTY STARTED.</h1>
-</div>
-  {{> hello}}
-</body>
+  <div class="jumbotron">
+    <h1 class="text-center">LET'S GET THIS PARTY STARTED.</h1>
+    <div class="form-group">
+	  <input type="text" name="userSearch" placeholder="ben city">
+	  <button type="submit" class="btn btn-lg">Search</button>
+	</div>
+	{{> loginButtons}}
+  </div>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>
+  <div class="hits col-md-8 col-md-offset-2">
+  {{#each hits}}
+    {{ >hit}}
+  {{/each}}
+</div>
+
+</body>
