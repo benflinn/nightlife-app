@@ -12,13 +12,7 @@ HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
   if ( error ) {
     console.log( error );
   } else {
-    console.log( response );
-
-    // loop over each sample poll and insert into database
-    _.each(response, function(location) {
-      Locations.insert(location);
-    });
-
+      Locations.insert(response);
 
     /*
      This will return the HTTP response object that looks something like this:

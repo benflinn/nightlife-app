@@ -5,8 +5,8 @@
 }
 
 .jumbotron {
-	color: white;
-	background-color: rgba(0,0,0,.4);
+	color: white!important;
+	background-color: rgba(0,0,0,.4)!important;
 }
 
 body {
