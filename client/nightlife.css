@@ -8,3 +8,9 @@ body {
 	background-size: cover;
 	background-attachment: fixed;
 }
+
+.hits{
+height:500px;
+
+background-color:rgba(255, 153, 0, 0.4);
+}
