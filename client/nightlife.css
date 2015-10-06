@@ -1,6 +1,12 @@
 /* CSS declarations go here */
 * {
 	font-family: courier;
+	color: white;
+}
+
+.jumbotron {
+	color: white;
+	background-color: rgba(0,0,0,.4);
 }
 
 body {
