@@ -34,8 +34,4 @@ HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
   }
 });
 
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> b84adb95e5f1f25cee9bae630ff3d9ad518755c7
