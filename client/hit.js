@@ -21,7 +21,7 @@ Template.hit.helpers({
 		return "prettypicture.jpg";
 	},
 	name: function(){
-		return Session.get("barnames");
+		return Locations().find({}).name;
 	},
 	review: function(){
 		return "this place is sweet";

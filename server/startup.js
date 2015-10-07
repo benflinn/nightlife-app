@@ -14,7 +14,11 @@ HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
   } else {
 
     _.each(response.data.response.venues, function(place) {
-      Locations.insert(place);
+		var placename= place.name;
+		var eachplace={
+			name: placename
+		}
+      Locations.insert(eachplace);
     });
 
     /*
