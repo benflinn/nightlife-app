@@ -1,0 +1,1 @@
+Attendances =new Mongo.Collection('attendances');
