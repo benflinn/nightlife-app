@@ -1,11 +1,8 @@
-
   var results;
 
   Template.body.helpers({
      hits: function(){
-		 return Locations.find();
-		 //this should have a filter eventually so it only returns results based 
-		 //on your query in the .events below
+		 return Session.get('barnames');
 	 }
     });
 
@@ -31,28 +28,13 @@
     console.log( error );
   } else {
     results = response.data.response.venues;
-    Session.set("barnames", results[0].name);
+    Session.set('barnames', results);
 
  //   _.each(response.data.response.venues, function(place) {
 //      Locations.insert(place);
  //   });
 
     event.target.userSearch.value = "";
-
-    /*
-     This will return the HTTP response object that looks something like this:
-     {
-       content: "String of content...",
-       data: [{
-         "body": "The body of the post with the ID 5."
-         "id": 5,
-         "title": "The title of the post with the ID 5.",
-         "userId": 1
-       }],
-       headers: {  Object containing HTTP response headers }
-       statusCode: 200
-     }
-    */
   }
 });
 	  
