@@ -17,21 +17,10 @@ Template.hit.events({
 });
 
 Template.hit.helpers({
-	image: function(){
-		return "prettypicture.jpg";
-	},
-	//name: function(){
-	//	return Locations().find({}).name;
-	//	return results[0].name;
-	//},
+	
 	review: function(){
 		return "this place is sweet";
-	},
-	link: function(){
-		return "www.coolbar.com";
-	},
-	attendance: function(){
-		return "this object's attendance";
 	}
+	
 	
 });
