@@ -1,6 +1,22 @@
 /* CSS declarations go here */
 * {
 	font-family: courier;
+	color: white;
+	font-weight: bolder;
+}
+
+a {
+	color: #00FF00;
+	font-weight: bolder;
+}
+
+form {
+	color: black;
+}
+
+.jumbotron {
+	color: white!important;
+	background-color: rgba(0,0,0,.3)!important;
 }
 
 body {
@@ -9,8 +25,6 @@ body {
 	background-attachment: fixed;
 }
 
-.hits{
-height:500px;
-
-background-color:rgba(255, 153, 0, 0.4);
+.hits {
+background-color:rgba(0, 0, 0, 0.8);
 }
