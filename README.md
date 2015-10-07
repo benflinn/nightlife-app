@@ -40,4 +40,26 @@ our app account: https://foursquare.com/developers/app/A5UA3LYLAL1V0EZ1EPAVSP5M2
 
 {{>loginButtons}}
 
+locations: id, attendance
+attendees: userId, locations
+10/7
+1. system starts up and inserts some new locations in db
+2. form submit clears 1. attended venues out from the viewport but still in memory 2. 
+    temporary venues out of memory altogether
+    user query is used to insert a new batch. if a new location matches an attended one in the memory, 
+	replace it with the attended one
+3. (before or after 2) voting 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
