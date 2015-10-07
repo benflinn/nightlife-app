@@ -15,6 +15,7 @@
       event.preventDefault();
 
       var loc = event.target.userSearch.value;
+
     
    //////make http request for data based on input//
    HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
@@ -31,6 +32,7 @@
   } else {
     results = response.data.response.venues;
     alert(results[0].name);
+    Session.set("barnames", response.data.response.venues[0].name);
 
  //   _.each(response.data.response.venues, function(place) {
 //      Locations.insert(place);
