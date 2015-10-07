@@ -20,9 +20,10 @@ Template.hit.helpers({
 	image: function(){
 		return "prettypicture.jpg";
 	},
-	name: function(){
-		return results[0].name;
-	},
+	//name: function(){
+	//	return Locations().find({}).name;
+	//	return results[0].name;
+	//},
 	review: function(){
 		return "this place is sweet";
 	},
