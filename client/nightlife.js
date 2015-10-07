@@ -24,15 +24,14 @@
     "client_secret": "FTIBM0VRK3VTH22HZG5DUDTVZR13N3FI05Z1VFNN25PM3LXU",
     "v": "20130815",
     "near": loc,
-    "query": "bars"
+    "query": "bar"
   }
 }, function( error, response ) {
   if ( error ) {
     console.log( error );
   } else {
     results = response.data.response.venues;
-    alert(results[0].name);
-    Session.set("barnames", response.data.response.venues[0].name);
+    Session.set("barnames", results[0].name);
 
  //   _.each(response.data.response.venues, function(place) {
 //      Locations.insert(place);
