@@ -6,13 +6,16 @@ HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
     "client_secret": "FTIBM0VRK3VTH22HZG5DUDTVZR13N3FI05Z1VFNN25PM3LXU",
     "v": "20130815",
     "ll": "40.7, -74",
-    "query": "bars"
+    "query": "sushi"
   }
 }, function( error, response ) {
   if ( error ) {
     console.log( error );
   } else {
-      Locations.insert(response);
+
+    _.each(response.data.response.venues, function(place) {
+      Locations.insert(place);
+    });
 
     /*
      This will return the HTTP response object that looks something like this:

@@ -21,7 +21,7 @@ Template.hit.helpers({
 		return "prettypicture.jpg";
 	},
 	name: function(){
-		return "coolname barplace";
+		return Locations;
 	},
 	review: function(){
 		return "this place is sweet";
