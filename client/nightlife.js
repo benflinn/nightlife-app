@@ -12,7 +12,7 @@
     'submit form': function (event) {
       event.preventDefault();
 
-      var query = event.target.form.value;
+      var query = event.target.userSearch.value;
     
    //////make http request for data based on input//
    HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
@@ -21,7 +21,7 @@
     "client_secret": "FTIBM0VRK3VTH22HZG5DUDTVZR13N3FI05Z1VFNN25PM3LXU",
     "v": "20130815",
     "ll": "40.7, -74",
-    "query": "sushi"
+    "query": query
   }
 }, function( error, response ) {
   if ( error ) {
