@@ -1,4 +1,6 @@
 
+  var results;
+
   Template.body.helpers({
      hits: function(){
 		 return Locations.find();
@@ -12,7 +14,7 @@
     'submit form': function (event) {
       event.preventDefault();
 
-      var query = event.target.userSearch.value;
+      var loc = event.target.userSearch.value;
     
    //////make http request for data based on input//
    HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
@@ -20,17 +22,21 @@
     "client_id": "A5UA3LYLAL1V0EZ1EPAVSP5M2RV2GKWIE05VOIB2PSN2Z0KT",
     "client_secret": "FTIBM0VRK3VTH22HZG5DUDTVZR13N3FI05Z1VFNN25PM3LXU",
     "v": "20130815",
-    "ll": "40.7, -74",
-    "query": query
+    "near": loc,
+    "query": "bars"
   }
 }, function( error, response ) {
   if ( error ) {
     console.log( error );
   } else {
+    results = response.data.response.venues;
+    alert(results[0].name);
 
-    _.each(response.data.response.venues, function(place) {
-      Locations.insert(place);
-    });
+ //   _.each(response.data.response.venues, function(place) {
+//      Locations.insert(place);
+ //   });
+
+    event.target.userSearch.value = "";
 
     /*
      This will return the HTTP response object that looks something like this:
