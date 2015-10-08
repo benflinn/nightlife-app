@@ -34,7 +34,7 @@
 	 _.each(response.data.response.venues, function(place) {  
 	 
 	 var placename= place.name;
-		var ID= place._id;
+		var ID= place.id;
 		var url= place.url;
 
 		var eachplace={
