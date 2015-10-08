@@ -15,24 +15,3 @@ Template.hit.events({
     }
 	
 });
-
-Template.hit.helpers({
-	image: function(){
-		return "prettypicture.jpg";
-	},
-	attendance: function(){
-		return "this object's attendance";
-	},
-});
-
-Template.hit.helpers.name = function() {
-	return results.name;
-}
-
-Template.hit.helpers.review = function() {
-	return results.categories[0].name;
-}
-
-Template.hit.helpers.link = function() {
-	return results.url;
-}

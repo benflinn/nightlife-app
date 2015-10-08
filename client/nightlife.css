@@ -22,9 +22,18 @@ form {
 body {
 	background-image: url('background.jpg');
 	background-size: cover;
-	background-attachment: fixed;
 }
 
 .hits {
 background-color:rgba(0, 0, 0, 0.8);
+}
+
+button {
+	color: black;
+	font-size: 30px;
+}
+
+.large {
+	font-size: 30px;
+	height: 45px;
 }
