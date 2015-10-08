@@ -7,8 +7,8 @@ HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
     "client_id": "A5UA3LYLAL1V0EZ1EPAVSP5M2RV2GKWIE05VOIB2PSN2Z0KT",
     "client_secret": "FTIBM0VRK3VTH22HZG5DUDTVZR13N3FI05Z1VFNN25PM3LXU",
     "v": "20130815",
-    "ll": "40.7, -74",
-    "query": "sushi"
+     "near": "seattle",
+    "query": "bar"
   }
 }, function( error, response ) {
   if ( error ) {
@@ -17,7 +17,7 @@ HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
 
     _.each(response.data.response.venues, function(place) {
 		var placename= place.name;
-		var ID= place._id;
+		var ID= place.id;
 		var url= place.url;
 
 		var eachplace={
