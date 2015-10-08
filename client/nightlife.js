@@ -3,9 +3,7 @@
 
   Template.body.helpers({
      hits: function(){
-		 return Locations.find();
-		 //this should have a filter eventually so it only returns results based 
-		 //on your query in the .events below
+		 return MyHits.find();
 	 }
     });
 
@@ -13,7 +11,7 @@
   Template.body.events({
     'submit form': function (event) {
       event.preventDefault();
-
+       Meteor.call('removeAllHits');
       var loc = event.target.userSearch.value;
     
    //////make http request for data based on input//
@@ -29,8 +27,30 @@
   if ( error ) {
     console.log( error );
   } else {
-    results = response.data.response.venues;
-    alert(results[0].name);
+    //results = response.data.response.venues;
+   // alert(results[0].name);
+	/////////////////////////////////////////////////////////////////////////////////
+	//jonathan 10/7//i hope dis works //
+	 _.each(response.data.response.venues, function(place) {  
+	 
+	 var placename= place.name;
+		var ID= place._id;
+		var url= place.url;
+
+		var eachplace={
+			venueId: ID,
+			name: placename,
+			link: url
+		};
+		  MyHits.insert(eachplace);
+    });
+	 
+	
+	
+	
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////
 
  //   _.each(response.data.response.venues, function(place) {
 //      Locations.insert(place);

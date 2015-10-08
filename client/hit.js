@@ -1,25 +1,23 @@
 Template.hit.events({
 	'click .attend': function(){
+		
 		var hitID= $(event.currentTarget).parent('.hit').data('id');
-		var count= $(event.currentTarget).parent('.hit').attendance;
-		var increase=count+1;
-		////somehow we'll get attendance as part of the hit.html dom or something///
+		var thisUser=Meteor.userId();
 	    
-	    if(Meteor.userId()){
-		Locations.update(
-		  {_id: hitID},
-	      {$inc: {attendance: 1}}
-		  )
-		// eventually we will prevent attending more than once for the same user///
-	     }
+	    if(Meteor.userId() && Attendances.find({userId: thisUser, venueId: hitID}).count()===0){
+		Attendances.insert({venueId: hitID, userId: thisUser});
+		
+	     }else if(Meteor.userId() && Attendances.find({userId: thisUser, venueId: hitID}).count()>0){
+			 Attendances.remove({venueId: hitID, userId: thisUser})
+		 }
     }
 	
 });
 
 Template.hit.helpers({
 	
-	review: function(){
-		return "this place is sweet";
+	attendance: function(){
+		return Attendances.find({venueId: this._id}).count();
 	}
 	
 	
