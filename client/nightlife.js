@@ -2,11 +2,7 @@
 
   Template.body.helpers({
      hits: function(){
-<<<<<<< HEAD
-		 return MyHits.find();
-=======
-		 return Session.get('barnames');
->>>>>>> master
+      return MyHits.find();
 	 }
     });
 
