@@ -2,7 +2,7 @@
 
   Template.body.helpers({
      hits: function(){
-		 return Session.get('barnames');
+      return MyHits.find();
 	 }
     });
 
@@ -10,7 +10,7 @@
   Template.body.events({
     'submit form': function (event) {
       event.preventDefault();
-
+       Meteor.call('removeAllHits');
       var loc = event.target.userSearch.value;
 
     
@@ -27,8 +27,30 @@
   if ( error ) {
     console.log( error );
   } else {
-    results = response.data.response.venues;
-    Session.set('barnames', results);
+    //results = response.data.response.venues;
+   // alert(results[0].name);
+	/////////////////////////////////////////////////////////////////////////////////
+	//jonathan 10/7//i hope dis works //
+	 _.each(response.data.response.venues, function(place) {  
+	 
+	 var placename= place.name;
+		var ID= place._id;
+		var url= place.url;
+
+		var eachplace={
+			venueId: ID,
+			name: placename,
+			link: url
+		};
+		  MyHits.insert(eachplace);
+    });
+	 
+	
+	
+	
+	
+	
+	//////////////////////////////////////////////////////////////////////////////////////
 
  //   _.each(response.data.response.venues, function(place) {
 //      Locations.insert(place);

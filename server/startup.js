@@ -1,5 +1,7 @@
 Meteor.startup(function() {
-
+	
+if(MyHits.find().count()===0){
+	
 HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
   params: {
     "client_id": "A5UA3LYLAL1V0EZ1EPAVSP5M2RV2GKWIE05VOIB2PSN2Z0KT",
@@ -15,10 +17,16 @@ HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
 
     _.each(response.data.response.venues, function(place) {
 		var placename= place.name;
+		var ID= place._id;
+		var url= place.url;
+
 		var eachplace={
-			name: placename
-		}
-      Locations.insert(eachplace);
+			venueId: ID,
+			name: placename,
+			link: url
+		};
+     
+		  MyHits.insert(eachplace);
     });
 
     /*
@@ -37,5 +45,15 @@ HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
     */
   }
 });
+}
+
+return Meteor.methods({
+	//removeAllAttendances: function(){
+	//	return ....
+	//},
+	removeAllHits: function(){
+		return MyHits.remove({});
+	}
+})
 
 });
