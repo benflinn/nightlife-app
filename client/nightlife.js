@@ -1,5 +1,4 @@
-  var results;
-  
+
 Session.setDefault("current", 'chicago');
 
   Template.body.helpers({
@@ -42,51 +41,83 @@ Session.setDefault("current", 'chicago');
 	//jonathan 10/7//i hope dis works //
 	 _.each(response.data.response.venues, function(place) {  
 	 
-	    var placename= place.name;
-		var ID= place.id;
-		var url= place.url;
+	 var placename = place.name;
+		var ID = place.id;
+		var url = place.url;
 		
-		if(Meteor.userId()){
+		if(Meteor.userId()) {
+
 		     var thisUser= Meteor.userId();
 
-		    var eachplace={
-			venueId: ID,
-			name: placename,
-			link: url,
-			userId: thisUser
-		     };
-		     Hits.insert(eachplace);
-		}
-		  else{
-			 var thisTemp= loc;
-			 var eachplace={
-				 venueId: ID,
-				 name: placename,
-				 link:url,
-				 temp: thisTemp
-			 };
-			 Hits.insert(eachplace);
-			 Session.set("current", loc);
+    HTTP.call('GET', 'https://api.foursquare.com/v2/venues/'+ID+'/photos', {
+      params: {
+        "client_id": "A5UA3LYLAL1V0EZ1EPAVSP5M2RV2GKWIE05VOIB2PSN2Z0KT",
+        "client_secret": "FTIBM0VRK3VTH22HZG5DUDTVZR13N3FI05Z1VFNN25PM3LXU",
+        "v": "20130815",
+        }
+      }, function( error, response ) {
+        if ( error ) {
+          console.log(error);
+          } else {
+            var prefix = response.data.response.photos.items[0].prefix;
+            var suffix = response.data.response.photos.items[0].suffix;
+
+            var eachplace = {
+              venueId: ID,
+              name: placename,
+              link: url,
+              userId: thisUser,
+              photolink: prefix + "300x300" + suffix
+              };
+              Hits.insert(eachplace);
+              }
+              });
+
+} else {
+
+  HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/'+ID+'/photos', {
+      params: {
+        "client_id": "A5UA3LYLAL1V0EZ1EPAVSP5M2RV2GKWIE05VOIB2PSN2Z0KT",
+        "client_secret": "FTIBM0VRK3VTH22HZG5DUDTVZR13N3FI05Z1VFNN25PM3LXU",
+        "v": "20130815",
+        }
+      }, function( error, response ) {
+        if ( error ) {
+          console.log( error );
+          } else {
+
+            var prefix = response.data.response.photos.items[0].prefix;
+            var suffix = response.data.response.photos.items[0].suffix;
+
+            var thisTemp= loc;
+
+            var eachplace={
+              venueId: ID,
+              name: placename,
+              link: url,
+              temp: thisTemp,
+              photolink: prefix + "300x300" + suffix
+              };
+              Hits.insert(eachplace);
+              Session.set("current", loc);
+              }
+              });
+}
+
+    });
+	 
+
+
+
 		  }
 		
 	
     });
 	 //end of http call//
 	
-	
-	
-	
-	
-	//////////////////////////////////////////////////////////////////////////////////////
-
- //   _.each(response.data.response.venues, function(place) {
-//      Locations.insert(place);
- //   });
-
     event.target.userSearch.value = "";
   }
 });
 	  
-    }
-  });
+
   
