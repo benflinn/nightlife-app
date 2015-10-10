@@ -1,4 +1,7 @@
-.hit{
+.text_holder{
+ word-wrap:break-word;
+word-break: break-all;
+white-space:normal;
 }
 .image_holder{
 width:150px;

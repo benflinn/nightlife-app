@@ -1,5 +1,6 @@
 Meteor.startup(function() {
-	
+//start timer in morn
+//Meteor.setInterval(function(){Attendances.remove({})}, 86400000 )	
 
 
 return Meteor.methods({
@@ -10,8 +11,8 @@ return Meteor.methods({
 		return Hits.remove({userId: thisUser});
 		}
 		
-	    else if(Hits.find({temp:location}).count()>0){
-			return Hits.remove({_id: Hits.findOne({temp: location})._id});
+	    else if(Hits.find({temp: location}).count()>2){
+			return Hits.remove({temp: location});
 			}
 	  }
 })
