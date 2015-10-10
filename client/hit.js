@@ -24,8 +24,9 @@ Template.hit.helpers({
 	photo: function() {
 		return this.photolink;
 		}
+	
 		
-		});
+});
 
 
 /*
