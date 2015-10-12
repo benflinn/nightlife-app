@@ -1,8 +1,8 @@
 Meteor.startup(function() {
 //start timer in morn
 //Meteor.setInterval(function(){Attendances.remove({})}, 86400000 )	
-
-
+ 
+ 
 return Meteor.methods({
 	
 	removeHits: function(location){
@@ -15,6 +15,7 @@ return Meteor.methods({
 			return Hits.remove({temp: location});
 			}
 	  }
+	 
 })
 
 });

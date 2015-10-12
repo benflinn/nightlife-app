@@ -25,8 +25,8 @@ Session.setDefault("current", 'chicago');
    //////make http request for data based on input//
    HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
   params: {
-    "client_id": CLIENT_ID,
-    "client_secret": CLIENT_SECRET,
+    "client_id": Meteor.settings.public.CLIENT_ID,
+    "client_secret": Meteor.settings.public.CLIENT_SECRET,
     "v": "20130815",
     "near": loc,
     "query": "bar"
@@ -48,9 +48,9 @@ Session.setDefault("current", 'chicago');
 
     HTTP.call('GET', 'https://api.foursquare.com/v2/venues/'+ID+'/photos', {
       params: {
-        "client_id": CLIENT_ID,
-        "client_secret": CLIENT_SECRET,
-        "v": "20130815",
+        "client_id": Meteor.settings.public.CLIENT_ID,
+        "client_secret": Meteor.settings.public.CLIENT_SECRET,
+        "v": "20130815"
         }
       }, function( error, response ) {
         if ( error ) {
@@ -74,8 +74,8 @@ Session.setDefault("current", 'chicago');
 
   HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/'+ID+'/photos', {
       params: {
-        "client_id": CLIENT_ID,
-        "client_secret": CLIENT_SECRET,
+        "client_id": Meteor.settings.public.CLIENT_ID,
+        "client_secret": Meteor.settings.public.CLIENT_SECRET,
         "v": "20130815",
         }
       }, function( error, response ) {
