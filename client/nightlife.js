@@ -26,7 +26,7 @@ Session.setDefault("current", 'chicago');
    HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/search', {
   params: {
     "client_id": "A5UA3LYLAL1V0EZ1EPAVSP5M2RV2GKWIE05VOIB2PSN2Z0KT",
-    "client_secret": "FTIBM0VRK3VTH22HZG5DUDTVZR13N3FI05Z1VFNN25PM3LXU",
+    "client_secret": "V0K3TTWFMEVVISI5NQJN3F1MFU4GKEPPXIFSS5BHY2LQIESB",
     "v": "20130815",
     "near": loc,
     "query": "bar"
@@ -52,7 +52,7 @@ Session.setDefault("current", 'chicago');
     HTTP.call('GET', 'https://api.foursquare.com/v2/venues/'+ID+'/photos', {
       params: {
         "client_id": "A5UA3LYLAL1V0EZ1EPAVSP5M2RV2GKWIE05VOIB2PSN2Z0KT",
-        "client_secret": "FTIBM0VRK3VTH22HZG5DUDTVZR13N3FI05Z1VFNN25PM3LXU",
+        "client_secret": "V0K3TTWFMEVVISI5NQJN3F1MFU4GKEPPXIFSS5BHY2LQIESB",
         "v": "20130815",
         }
       }, function( error, response ) {
@@ -78,7 +78,7 @@ Session.setDefault("current", 'chicago');
   HTTP.call( 'GET', 'https://api.foursquare.com/v2/venues/'+ID+'/photos', {
       params: {
         "client_id": "A5UA3LYLAL1V0EZ1EPAVSP5M2RV2GKWIE05VOIB2PSN2Z0KT",
-        "client_secret": "FTIBM0VRK3VTH22HZG5DUDTVZR13N3FI05Z1VFNN25PM3LXU",
+        "client_secret": "V0K3TTWFMEVVISI5NQJN3F1MFU4GKEPPXIFSS5BHY2LQIESB",
         "v": "20130815",
         }
       }, function( error, response ) {
