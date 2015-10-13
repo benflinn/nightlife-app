@@ -24,3 +24,7 @@ accounts-ui
 http
 pauldowman:dotenv
 cosmos:browserify
+meteorhacks:npm
+
+
+npm-container
