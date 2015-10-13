@@ -1,17 +1,14 @@
 /* CSS declarations go here */
 * {
 	font-family: courier;
-	color: white;
+	color: #EDD3C0;
 	font-weight: bolder;
 }
 
 a {
-	color: #00FF00;
+	color: #D70422!important;
 	font-weight: bolder;
-}
-
-form {
-	color: black;
+	font-size: 20px;
 }
 
 .jumbotron {
@@ -22,18 +19,39 @@ form {
 body {
 	background-image: url('background.jpg');
 	background-size: cover;
+	background-attachment: fixed;
 }
 
 .hits {
 background-color:rgba(0, 0, 0, 0.8);
 }
 
-button {
-	color: black;
-	font-size: 30px;
-}
-
 .large {
 	font-size: 30px;
 	height: 45px;
+}
+
+
+button:active {
+	position:relative;
+	top:2px;
+}
+button {
+  background: #000C2C!important;
+  background-image: -webkit-linear-gradient(top, #85421d, #5c240e);
+  background-image: -moz-linear-gradient(top, #85421d, #5c240e);
+  background-image: -ms-linear-gradient(top, #85421d, #5c240e);
+  background-image: -o-linear-gradient(top, #85421d, #5c240e);
+  background-image: linear-gradient(to bottom, #85421d, #5c240e);
+  -webkit-border-radius: 39;
+  -moz-border-radius: 39;
+  border-radius: 39px;
+  text-shadow: 1px 1px 3px #000000;
+  color: #ffffff;
+  font-size: 30px;
+  padding: 10px 20px 10px 20px;
+}
+
+button:hover {
+  background: #90ACF7!important;
 }
